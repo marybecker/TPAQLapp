@@ -10,7 +10,7 @@ source("AboutPrj.R", local=T)
 shinyUI (navbarPage(#theme="spacelab.css",
                          collapsible=TRUE,
                          title=div("CT Dept of Energy and Environmental Protection",
-                                   img(src="deeplogo.png",height=30,width=30,style="float:left")),
+                                   img(src="deeplogo.png",height=30,width=30,style="float:left;margin-right: 10px")),
                          windowTitle=("CT DEEP TP Research"),
                          tabPanel("Research",
                                   div(class="outer",
