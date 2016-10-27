@@ -118,30 +118,37 @@ shinyServer(function(input,output,session){
   
   ######TP Management Map##########  
   output$TPmap <- renderLeaflet({
-    
-    mapbrk<- switch(input$year,
-                    "Pre-Managment"=TPBasin$C2010,
-                    "2015"=TPBasin$C2015,
-                    "Future"=TPBasin$CFUT)
-    
-    mapcol2<- switch(input$year,
-                     "Pre-Managment" = colorFactor(c("chartreuse","aquamarine","lightskyblue","lightseagreen","gray"),
-                                          levels=c("H","HM","L","LM","NA")),
-                     
-                     "2015" = colorFactor(c("chartreuse","lightskyblue","lightseagreen","gray"),
-                                          levels=c("H","L","LM","NA")),
-                     
-                     "Future" = colorFactor(c("aquamarine","lightskyblue","lightseagreen","gray"),
-                                            levels=c("HM","L","LM","NA"))
-    )
-    
-    leaflet()%>%
-      addProviderTiles("CartoDB.Positron")%>%
-      setView(-73.3,41.6,zoom=9)%>%
-      # addPolygons(data=TPBasin,stroke=TRUE,color="gray100",weight = 1,fillColor="gray")
-      addPolygons(data=TPBasin,stroke=TRUE,color="black",weight = 1,fillColor=~mapcol2(mapbrk),layerId=TPBasin$RBAS_NO)%>%
-      addLegend(position="bottomright",colors=c("chartreuse","aquamarine","lightseagreen","lightskyblue"),
-                labels=c("High","Medium High","Medium Low","Low"),title="TP Yield (kg/km2)")
+        
+        withProgress(message="Map may take a moment to load...",value=0, {
+          for(i in 1:20){
+            incProgress(1/20)
+            Sys.sleep(0.25)
+          }
+        })
+        
+        mapbrk<- switch(input$year,
+                        "Pre-Managment"=TPBasin$C2010,
+                        "2015"=TPBasin$C2015,
+                        "Future"=TPBasin$CFUT)
+        
+        mapcol2<- switch(input$year,
+                         "Pre-Managment" = colorFactor(c("chartreuse","aquamarine","lightskyblue","lightseagreen","gray"),
+                                                       levels=c("H","HM","L","LM","NA")),
+                         
+                         "2015" = colorFactor(c("chartreuse","lightskyblue","lightseagreen","gray"),
+                                              levels=c("H","L","LM","NA")),
+                         
+                         "Future" = colorFactor(c("aquamarine","lightskyblue","lightseagreen","gray"),
+                                                levels=c("HM","L","LM","NA"))
+        )
+        
+        leaflet()%>%
+          addProviderTiles("CartoDB.Positron")%>%
+          setView(-73.3,41.6,zoom=9)%>%
+          # addPolygons(data=TPBasin,stroke=TRUE,color="gray100",weight = 1,fillColor="gray")
+          addPolygons(data=TPBasin,stroke=TRUE,color="black",weight = 1,fillColor=~mapcol2(mapbrk),layerId=TPBasin$RBAS_NO)%>%
+          addLegend(position="bottomright",colors=c("chartreuse","aquamarine","lightseagreen","lightskyblue"),
+                    labels=c("High","Medium High","Medium Low","Low"),title="TP Yield (kg/km2)")
     
   })
   
