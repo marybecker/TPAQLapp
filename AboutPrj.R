@@ -95,19 +95,22 @@ about <- tabPanel("About Project",
             					  nutrient criteria in stream and their ecological relevance.  32: 51-61. </a></p>
 
                        <p><a href=http://www.ct.gov/deep/phosphorus>
-                        CT DEEP PA 12-155 Phosphorus Reduction Strategy for Inland Non-Tidal Waters Website</a></p>  
+                        CT DEEP PA 12-155 Phosphorus Reduction Strategy for Inland Non-Tidal Waters Website</a></p>
+                
+                       <p>Source code on <a href="https://github.com/marybecker/TPAQLapp" target="_blank">GitHub</a></p>  
                        
-                       <p>Add link to pre-publication</p>
+                       <p>Pre-publication Diatom Metrics link coming soon</p>
                        
                        <h3>Contact</h3> 
                       
                        <p>
                        <img src="CherryBrook_sampling.png" style="float:left; margin-right:10px;">
                        Mary Becker<br/>
-                       Research Principal Investigator<br/> 
+                       Research Project Principal Investigator<br/> 
                        Senior Environmental Analyst<br/>
                        Stream Monitoring and Assessment Program<br/>
                        Connecticut Department of Environmental Protection</br>
+                       79 Elm Street, Hartford CT  
                        mary.becker@ct.gov</p>'  
                        
                        
