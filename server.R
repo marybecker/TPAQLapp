@@ -119,12 +119,12 @@ shinyServer(function(input,output,session){
   ######TP Management Map##########  
   output$TPmap <- renderLeaflet({
         
-        withProgress(message="Map may take a moment to load...",value=0, {
-          for(i in 1:20){
-            incProgress(1/20)
-            Sys.sleep(0.25)
-          }
-        })
+    withProgress(message="Map may take a moment to load...",value=0, {
+      for(i in 1:30){
+        incProgress(1/30)
+        Sys.sleep(0.25)
+      }
+    })
         
         mapbrk<- switch(input$year,
                         "Pre-Managment"=TPBasin$C2010,
