@@ -76,25 +76,26 @@ about <- tabPanel("About Project",
                        
                       <h3>References</h3>
 					  
-            					  <p><a href=http://www.ct.gov/deep/lib/deep/water/water_quality_standards/p/interimmgntphosstrat_042614.pdf> 
+            					  <p><a href=http://www.ct.gov/deep/lib/deep/water/water_quality_standards/p/interimmgntphosstrat_042614.pdf target="_blank"> 
             					  Becker, M.E.  (2014) Interim Phosphorus Reduction Strategy for Connecticut Freshwater Non-Tidal 
             					  Waste-Receiving Rivers and Streams Technical Support Document.  
             					  Connecticut Department of Energy and Environmental Protection.  Hartford, CT.</a></p>
             					  
-            					  <p><a href=http://www.ct.gov/deep/lib/deep/water/water_quality_standards/p/sciencemw/casereport_phosphorus.pdf>The Connecticut Academy of 
+            					  <p><a href=http://www.ct.gov/deep/lib/deep/water/water_quality_standards/p/sciencemw/casereport_phosphorus.pdf target="_blank">
+                        The Connecticut Academy of 
             					  Science and Engineering (CASE) (2014) Methods to Measure Phosphorus and Make Future Projections.  Rocky Hill, CT.</a></p>
             					  
-            					  <p><a href=http://onlinelibrary.wiley.com/doi/10.1111/j.1752-1688.2011.00582.x/abstract>
+            					  <p><a href=http://onlinelibrary.wiley.com/doi/10.1111/j.1752-1688.2011.00582.x/abstract target="_blank">
             					  Moore, Richard B., Craig M. Johnston, Richard A. Smith, and Bryan Milstead (2011) 
             					  Source and Delivery of Nutrients to Receiving Waters in the Northeastern and Mid-Atlantic Regions of the United States. 
             					  Journal of the American Water Resources Association (JAWRA) 47(5):965-990. </a></p>
             					  
-            					  <p><a href=http://www.sciencedirect.com/science/article/pii/S1470160X13001246>
+            					  <p><a href=http://www.sciencedirect.com/science/article/pii/S1470160X13001246 target="_blank">
             					  Smucker, Nathan J., Mary Becker, Naomi E. Detenbeck, Alisa C. Morrison (2013) 
             					  Using algal metrics and biomass to evaluate multiple ways of defining concentration-based
             					  nutrient criteria in stream and their ecological relevance.  32: 51-61. </a></p>
 
-                       <p><a href=http://www.ct.gov/deep/phosphorus>
+                       <p><a href=http://www.ct.gov/deep/phosphorus target="_blank">
                         CT DEEP PA 12-155 Phosphorus Reduction Strategy for Inland Non-Tidal Waters Website</a></p>
                 
                        <p>Source code on <a href="https://github.com/marybecker/TPAQLapp" target="_blank">GitHub</a></p>  
@@ -105,11 +106,11 @@ about <- tabPanel("About Project",
                       
                        <p>
                        <img src="CherryBrook_sampling.png" style="float:left; margin-right:10px;">
-                       Mary Becker<br/>
+                       Mary E. Becker<br/>
                        Research Project Principal Investigator<br/> 
                        Senior Environmental Analyst<br/>
                        Stream Monitoring and Assessment Program<br/>
-                       Connecticut Department of Environmental Protection</br>
+                       Connecticut Department of Energy and Environmental Protection</br>
                        79 Elm Street, Hartford CT  
                        mary.becker@ct.gov</p>'  
                        

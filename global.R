@@ -14,5 +14,5 @@ nm<-setNames(as.numeric(DSites$site),DSites$SID)
 #read in a shapefile. dsn is the folder containing the shapefiles,layer is the shapefile
 #For Leaflet Coordinate System that works is GCS_North_American_1983 Datum: D_North_American_1983
 #Projected State Plane Does Not Work
-TPBasin <- readOGR("data/RBasin_TPYieldRdc.shp",layer="RBasin_TPYieldRdc")
+TPBasin <- readOGR("data/SimpTPBasin.shp",layer="SimpTPBasin")
 TPBasin.df<- read.csv("data/TPBasinYield.csv",header=TRUE)

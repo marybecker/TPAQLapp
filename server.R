@@ -1,5 +1,7 @@
 ##########Shiny Server######################
 
+
+
 shinyServer(function(input,output,session){
   
   output$map <- renderLeaflet({
@@ -12,8 +14,8 @@ shinyServer(function(input,output,session){
       addCircleMarkers(data=DSites,lng=DSites$XLong,lat=DSites$YLat,
                        #popup=paste(sep="<br/>",DSites$Station_Name,paste("SID", DSites$site)),
                        radius=5,stroke=FALSE,fillColor=~mapcol(DSites$TP_CAT),fillOpacity=1,layerId=~DSites$site)%>%
-      addLegend(position="bottomright",colors=c("cadetblue","darkseagreen","Green"),labels=c("L","M","H"),
-                title="Avg TP CAT")
+      addLegend(position="bottomright",colors=c("cadetblue","darkseagreen","Green"),labels=c("Low","Medium","High"),
+                title="Average TP (mg/L) /br category")
   })
   
   
@@ -26,7 +28,7 @@ shinyServer(function(input,output,session){
       leafletProxy("map") %>% setView(lng=p$lng, lat=p$lat, zoom=10) %>%
         addCircleMarkers(p$lng, p$lat, radius=10, color="black",
                          fillOpacity=0, opacity=1, stroke=TRUE,
-                         popup=paste(sep="<br/>",p$Station_Name,paste("SID",p$site)),layerId="Selected")
+                         layerId="Selected")
     }
   })
   
@@ -54,7 +56,7 @@ shinyServer(function(input,output,session){
         setView(lng=p2$XLong, lat=p2$YLat,zoom=10) %>%
         addCircleMarkers(p2$XLong, p2$YLat, radius=10, color="black",
                          fillOpacity=0, opacity=1, stroke=TRUE, 
-                         popup=paste(sep="<br/>",p2$Station_Name,paste("SID",p2$site)),layerId="Selected")
+                         layerId="Selected")
     }
   })
   
@@ -119,47 +121,20 @@ shinyServer(function(input,output,session){
   ######TP Management Map##########  
   output$TPmap <- renderLeaflet({
         
-    withProgress(message="Map may take a moment to load...",value=0, {
-      for(i in 1:30){
-        incProgress(1/30)
-        Sys.sleep(0.25)
-      }
-    })
-        
-        mapbrk<- switch(input$year,
-                        "Pre-Managment"=TPBasin$C2010,
-                        "2015"=TPBasin$C2015,
-                        "Future"=TPBasin$CFUT)
-        
-        mapcol2<- switch(input$year,
-                         "Pre-Managment" = colorFactor(c("chartreuse","aquamarine","lightskyblue","lightseagreen","gray"),
-                                                       levels=c("H","HM","L","LM","NA")),
-                         
-                         "2015" = colorFactor(c("chartreuse","lightskyblue","lightseagreen","gray"),
-                                              levels=c("H","L","LM","NA")),
-                         
-                         "Future" = colorFactor(c("aquamarine","lightskyblue","lightseagreen","gray"),
-                                                levels=c("HM","L","LM","NA"))
-        )
+    mapcol2<- colorFactor(c("chartreuse","aquamarine","lightseagreen","lightskyblue","lightblue","gray"),
+                          levels=c(">75","50-75","25-50","0-25","Cap","NA"))
         
         leaflet()%>%
           addProviderTiles("CartoDB.Positron")%>%
           setView(-73.3,41.6,zoom=9)%>%
-          # addPolygons(data=TPBasin,stroke=TRUE,color="gray100",weight = 1,fillColor="gray")
-          addPolygons(data=TPBasin,stroke=TRUE,color="black",weight = 1,fillColor=~mapcol2(mapbrk),layerId=TPBasin$RBAS_NO)%>%
-          addLegend(position="bottomright",colors=c("chartreuse","aquamarine","lightseagreen","lightskyblue"),
-                    labels=c("High","Medium High","Medium Low","Low"),title="TP Yield (kg/km2)")
+          addPolygons(data=TPBasin,stroke=TRUE,color="black",weight = 1,fillColor=~mapcol2(TPBasin$RedCAT),
+                      layerId=TPBasin$RBAS_NO)%>%
+          addLegend(position="bottomright",colors=c("chartreuse","aquamarine","lightseagreen","lightskyblue","lightblue","gray"),
+                    labels=c("> 75%","50 - 75%","25 - 50%","1 - 25%","Cap","NA"),title="Full Implementation <br> TP Percent Reduction")
     
   })
   
   
-  output$text1 <- renderText({
-    switch(input$year,
-           "Pre-Managment"="Estimated Phosphorus Yields before statewide TP Management in waste receiving streams",
-           "2015"="Estimated phosphorus yields with interim limits at waste water treatment plants ",
-           "Future"="Estimated phosphorus yields with full implementation of TP management at waste water treatment plants"
-    )
-  })
   
   #Update the plot with map hover#
   
