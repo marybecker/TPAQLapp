@@ -3,9 +3,9 @@ title:
 account: ctriverresearch
 server: shinyapps.io
 appId: 135328
-bundleId: 603558
+bundleId: 603671
 url: https://ctriverresearch.shinyapps.io/TPAQLapp/
-when: 1478097764.76808
+when: 1478104159.43862
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: README.txt
+ignoredFiles: README.txt|www/Thumbs.db

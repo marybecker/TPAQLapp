@@ -121,7 +121,7 @@ shinyServer(function(input,output,session){
   ######TP Management Map##########  
   output$TPmap <- renderLeaflet({
         
-    mapcol2<- colorFactor(c("chartreuse","aquamarine","lightseagreen","lightskyblue","lightblue","gray"),
+    mapcol2<- colorFactor(c("lightskyblue","lightseagreen","aquamarine","chartreuse","lightblue","gray"),
                           levels=c(">75","50-75","25-50","0-25","Cap","NA"))
         
         leaflet()%>%

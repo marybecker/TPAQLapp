@@ -13,30 +13,6 @@ shinyUI (navbarPage(#theme="spacelab.css",
                                    img(src="deeplogo.png",height=30,width=30,style="float:left;margin-right: 10px")),
                          windowTitle=("CT DEEP TP Research"),
                          
-                         ##Management Tab##
-                         tabPanel("Management",
-                                  div(class="outer",
-                                      tags$style(type="text/css",".outer{position: fixed;top: 41px;left: 0;
-                                                 right: 0;bottom: 0;overflow: hidden;padding: 0;}"),
-                                      leafletOutput("TPmap",width="100%",height="100%"),
-                                      absolutePanel(top=20,left=60,height=20,width=1000,
-                                                    h3("Total Phosphorus (TP) Management in CT Freshwater Streams")
-                                      ),
-                                      absolutePanel(id = "controls", class = "panel panel-default", fixed = FALSE,
-                                                    draggable = FALSE, top = 100, left = 60, right = "auto", bottom = "auto",
-                                                    width = 400, height = 400,
-                                                    h4("Explore Management Efforts"),
-                                                    tags$em("Hover over regional basin on map to view estimated TP yield reductions over time"),
-                                                    plotOutput("TPMgntPlot")
-                                                    # )
-                                      ),
-                                      absolutePanel(top=500,left=60,height=20,width=400,
-                                                    tags$strong("See 'About Project' tab for more information on data used")),
-                                      absolutePanel(top=525,left=60,height=20,width=100,
-                                                    downloadButton("downloadTPYieldData","Download All TP Yield Data"))
-                                      )
-                         ),
-                        
                          ##Research Tab##
                          tabPanel("Research",
                                   div(class="outer",
@@ -62,9 +38,34 @@ shinyUI (navbarPage(#theme="spacelab.css",
                                       absolutePanel(top=640,left=60,height=20,width=100,
                                                     downloadButton("downloadData","Download All Metric Data for this Site")
                                       )
-                                      )
+                                  )
                                   
                                   
                          ),
+                         
+                         ##Management Tab##
+                         tabPanel("Management",
+                                  div(class="outer",
+                                      tags$style(type="text/css",".outer{position: fixed;top: 41px;left: 0;
+                                                 right: 0;bottom: 0;overflow: hidden;padding: 0;}"),
+                                      leafletOutput("TPmap",width="100%",height="100%"),
+                                      absolutePanel(top=20,left=60,height=20,width=1000,
+                                                    h3("Total Phosphorus (TP) Management in CT Freshwater Streams")
+                                      ),
+                                      absolutePanel(id = "controls", class = "panel panel-default", fixed = FALSE,
+                                                    draggable = FALSE, top = 100, left = 60, right = "auto", bottom = "auto",
+                                                    width = 400, height = 400,
+                                                    h4("Explore Management Efforts"),
+                                                    tags$em("Hover over regional basin on map to view estimated TP yield reductions over time"),
+                                                    plotOutput("TPMgntPlot")
+                                                    # )
+                                      ),
+                                      absolutePanel(top=500,left=60,height=20,width=400,
+                                                    tags$strong("See 'About Project' tab for more information on data used")),
+                                      absolutePanel(top=525,left=60,height=20,width=100,
+                                                    downloadButton("downloadTPYieldData","Download All TP Yield Data"))
+                                      )
+                         ),
+                        
                          about
                          ))
