@@ -15,7 +15,7 @@ shinyServer(function(input,output,session){
                        #popup=paste(sep="<br/>",DSites$Station_Name,paste("SID", DSites$site)),
                        radius=5,stroke=FALSE,fillColor=~mapcol(DSites$TP_CAT),fillOpacity=1,layerId=~DSites$site)%>%
       addLegend(position="bottomright",colors=c("cadetblue","darkseagreen","Green"),labels=c("Low","Medium","High"),
-                title="Average TP (mg/L) /br category")
+                title="Average TP (mg/L) </br> category")
   })
   
   
